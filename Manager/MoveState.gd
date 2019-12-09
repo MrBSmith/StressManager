@@ -4,12 +4,13 @@ onready var manager_node = get_node("../../")
 var target_pos := Vector2()
 var speed : int = 2
 
-# Handle the mouse left click
+# Handle the mouse right click
 # Give the player, the mouse position as a target position
 func _input(event):
 	if event is InputEventMouseButton:
-		target_pos.x = event.position.x as int
-		target_pos.y = event.position.y as int
+		if event.pressed && event.get_button_index() == BUTTON_RIGHT:
+			target_pos.x = event.position.x as int
+			target_pos.y = event.position.y as int
 
 func update(_host, _delta):
 	# Move toward the target if it exists and if it's not the player position

@@ -61,6 +61,7 @@ color = Color( 0.176471, 0.615686, 1, 1 )
 script = ExtResource( 4 )
 
 [node name="States" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="Work" type="Node" parent="States"]

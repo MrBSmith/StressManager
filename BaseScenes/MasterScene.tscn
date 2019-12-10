@@ -39,10 +39,13 @@ position = Vector2( 39.5634, 40.6557 )
 position = Vector2( 39.6581, 64.6049 )
 
 [node name="Employe3" parent="YSort" instance=ExtResource( 5 )]
+light_mask = 8
 position = Vector2( 79.5884, 64.681 )
 
 [node name="Employe4" parent="YSort" instance=ExtResource( 6 )]
+light_mask = 16
 position = Vector2( 119.374, 41.3821 )
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 margin_bottom = 92.0
+mouse_filter = 2

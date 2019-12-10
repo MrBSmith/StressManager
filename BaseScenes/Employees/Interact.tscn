@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://BaseScenes/Employees/ClickArea.gd" type="Script" id=1]
+
+[node name="Interact" type="Control"]
+margin_left = -19.9489
+margin_top = -21.2247
+margin_right = 20.0511
+margin_bottom = 18.7753
+mouse_filter = 1
+
+[node name="ClickArea" type="TextureButton" parent="."]
+margin_left = 9.60099
+margin_top = 9.8768
+margin_right = 29.601
+margin_bottom = 29.8768
+mouse_filter = 1
+toggle_mode = true
+shortcut_in_tooltip = false
+action_mode = 0
+expand = true
+stretch_mode = 1
+script = ExtResource( 1 )
+[connection signal="pressed" from="ClickArea" to="ClickArea" method="on_pressed"]

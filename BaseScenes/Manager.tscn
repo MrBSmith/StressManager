@@ -5,7 +5,7 @@
 [ext_resource path="res://BaseScenes/Employees/Jauges/StressJauge.gd" type="Script" id=3]
 [ext_resource path="res://BaseClasses/StateMachine.gd" type="Script" id=4]
 [ext_resource path="res://Manager/MoveState.gd" type="Script" id=5]
-[ext_resource path="res://BaseClasses/Attributs.gd" type="Script" id=6]
+[ext_resource path="res://Manager/ManagerAttributes.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 1 )
@@ -21,6 +21,7 @@ position = Vector2( 0, -3 )
 texture = ExtResource( 1 )
 
 [node name="Jauges" type="Control" parent="."]
+mouse_filter = 1
 __meta__ = {
 "_edit_lock_": true
 }
@@ -30,6 +31,7 @@ margin_left = -4.0
 margin_top = -11.0
 margin_right = 4.0
 margin_bottom = -7.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0.294118 )
 
 [node name="Productivity" type="ColorRect" parent="Jauges"]
@@ -37,6 +39,7 @@ margin_left = -3.0
 margin_top = -10.0
 margin_right = 3.0
 margin_bottom = -9.0
+mouse_filter = 2
 color = Color( 0.176471, 0.615686, 1, 1 )
 script = ExtResource( 2 )
 
@@ -45,7 +48,8 @@ margin_left = -3.0
 margin_top = -9.0
 margin_right = 3.0
 margin_bottom = -8.0
-color = Color( 1, 0, 0, 1 )
+mouse_filter = 2
+color = Color( 1, 0.133333, 0.133333, 1 )
 script = ExtResource( 3 )
 
 [node name="States" type="Node" parent="."]
@@ -56,5 +60,3 @@ script = ExtResource( 5 )
 
 [node name="Attributes" type="Node" parent="."]
 script = ExtResource( 6 )
-stress = 3
-productivity = 3

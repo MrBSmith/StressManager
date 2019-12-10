@@ -1,5 +1,7 @@
 extends Area2D
 
+# This node notifies the jauges node and the attributes node when the player enter the area
+
 onready var attributes_node = get_node("../Attributes")
 onready var jauge_node = get_node("../Jauges")
 

@@ -40,5 +40,8 @@ func on_body_exited(body):
 	if body == manager_node:
 		set_accessable(false)
 
-func on_stress_increase_done():
+func on_stress_increase():
 	set_stress(stress + 1)
+
+func on_stress_decrease():
+	set_stress(stress - 1)

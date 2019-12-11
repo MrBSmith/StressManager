@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://BaseScenes/Employees/ClickArea.gd" type="Script" id=1]
+[ext_resource path="res://BaseScenes/Employees/Interact/ClickArea.gd" type="Script" id=1]
 
 [node name="Interact" type="Control"]
 margin_left = -19.9489

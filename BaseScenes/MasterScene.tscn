@@ -2,11 +2,11 @@
 
 [ext_resource path="res://TilesetBureau/Bureau.tres" type="TileSet" id=1]
 [ext_resource path="res://BaseScenes/Manager.tscn" type="PackedScene" id=2]
-[ext_resource path="res://BaseScenes/Employees/Employee1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://BaseScenes/Employees/Employee2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://BaseScenes/Employees/Employe3.tscn" type="PackedScene" id=5]
-[ext_resource path="res://BaseScenes/Employees/Employe4.tscn" type="PackedScene" id=6]
-[ext_resource path="res://BaseScenes/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://BaseScenes/Employees/EmployeesInstances/Employee1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BaseScenes/Employees/EmployeesInstances/Employee2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://BaseScenes/Employees/EmployeesInstances/Employe3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://BaseScenes/Employees/EmployeesInstances/Employe4.tscn" type="PackedScene" id=6]
+[ext_resource path="res://BaseScenes/HUD/HUD.tscn" type="PackedScene" id=7]
 
 [node name="Master" type="Node2D"]
 __meta__ = {

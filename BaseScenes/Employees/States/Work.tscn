@@ -1,17 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://BaseScenes/Employees/States/Work.gd" type="Script" id=1]
-[ext_resource path="res://BaseScenes/Employees/WorkTimer.gd" type="Script" id=2]
+[ext_resource path="res://BaseScenes/Employees/States/WorkTimer.gd" type="Script" id=2]
+[ext_resource path="res://BaseScenes/Employees/States/StressIncreaseTimer.gd" type="Script" id=3]
 
 [node name="Work" type="Node"]
 script = ExtResource( 1 )
 
 [node name="WorkTimer" type="Timer" parent="."]
 wait_time = 10.0
-autostart = true
 script = ExtResource( 2 )
 
 [node name="StressIncreaseTimer" type="Timer" parent="."]
 wait_time = 24.0
-autostart = true
-script = ExtResource( 2 )
+script = ExtResource( 3 )

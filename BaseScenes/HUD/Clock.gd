@@ -5,6 +5,10 @@ export var minutes : int setget set_minutes, get_minutes
 var hours_string : String = "08"
 var minutes_string : String = "00"
 
+const NORMAL_COLOR = "ffffff"
+const YELLOW_COLOR = "ffff00"
+const RED_COLOR = "ff0000"
+
 signal new_day
 
 func _ready():
@@ -34,6 +38,17 @@ func text_display():
 		minutes_string = "00"
 	else:
 		minutes_string = minutes as String
+	
+	text_color()
+
+# Handle the text color, relative to the hour of the day
+func text_color():
+	if hours < 17:
+		set_modulate(NORMAL_COLOR)
+	elif hours < 20:
+		set_modulate(YELLOW_COLOR)
+	else: 
+		set_modulate(RED_COLOR)
 
 func wrap_hours():
 	if hours >= 24:

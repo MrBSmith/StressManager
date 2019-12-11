@@ -10,7 +10,7 @@ signal productivity_change
 
 var max_stress : int = 6
 var max_productivity : int = 6
-var stress : int = 3 setget set_stress, get_stress
+var stress : int = 1 setget set_stress, get_stress
 var productivity : int = 3 setget set_productivity, get_productivity
 
 # Connect the signals to the stress and productivity jauges

@@ -53,7 +53,6 @@ __meta__ = {
 position = Vector2( -2.5, -8 )
 
 [node name="Attributes" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="ProductivityVariation" type="Node" parent="Attributes"]
@@ -135,6 +134,7 @@ margin_bottom = 18.0196
 mouse_filter = 0
 
 [node name="Buttons" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 margin_left = -20.0
 margin_top = -23.0
@@ -185,8 +185,6 @@ margin_bottom = 8.65982
 mouse_filter = 1
 texture_normal = ExtResource( 19 )
 script = ExtResource( 20 )
-
-[node name="StateVisual" type="Node" parent="."]
 
 [node name="States" type="Node" parent="."]
 editor/display_folded = true

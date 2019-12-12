@@ -30,7 +30,7 @@ text = "08:00"
 align = 2
 valign = 1
 script = ExtResource( 2 )
-hours = 16
+hours = 8
 
 [node name="DaysLeft" type="Label" parent="."]
 margin_left = 65.0

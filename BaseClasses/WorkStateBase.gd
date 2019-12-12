@@ -20,6 +20,7 @@ onready var attributes_node := get_parent().get_parent().get_node("Attributes")
 onready var workTimer_node := find_node("WorkTimer")
 onready var StressIncreaseTimer_node := find_node("StressIncreaseTimer")
 onready var employee_node := get_node("../..")
+onready var state_node = get_parent()
 
 onready var target_position = attributes_node.get_work_position()
 
@@ -50,7 +51,6 @@ func enter_state(_host):
 # Set the timers inactives when exiting the state
 func exit_state(_host):
 	workTimer_node.stop()
-	StressIncreaseTimer_node.stop()
 
 # At a interval of time based on the productivity, the work_done value is increased,
 # Recalculate the interval each time the timer is finished
@@ -62,5 +62,6 @@ func on_worktimer_timeout():
 # At a interval of time based on the character's trait, the stress value is increased,
 # Recalculate the interval each time the timer is finished
 func on_stress_increase_timer():
-	emit_signal("stress_increase")
-	StressIncreaseTimer_node.set_wait_time(stress_increase_cooldown)
+	if state_node.get_state() == self:
+		emit_signal("stress_increase")
+		StressIncreaseTimer_node.set_wait_time(stress_increase_cooldown)

@@ -10,6 +10,7 @@ const YELLOW_COLOR = "ffff00"
 const RED_COLOR = "ff0000"
 
 signal new_day
+#signal work_time
 
 func _ready():
 	var DaysLeft_node = get_node("../DaysLeft")

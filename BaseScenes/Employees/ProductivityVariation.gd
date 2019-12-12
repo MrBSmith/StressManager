@@ -11,8 +11,7 @@ func on_timeout():
 		attributes_node.set_productivity(prod - 1)
 		timer_node.set_wait_time(8)
 	elif stress > 2:
-		attributes_node.set_productivity(prod - 1)
-		timer_node.set_wait_time(10)
+		pass
 	else:
 		attributes_node.set_productivity(prod + 1)
 		timer_node.set_wait_time(8)

@@ -1,7 +1,6 @@
 extends WorkStateBase
 
 onready var coffeebreak_node = get_node("CoffeeBreakTimer")
-onready var state_node = get_parent()
 
 # Connect signals
 func _ready():

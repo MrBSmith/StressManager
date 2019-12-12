@@ -1,16 +1,17 @@
 extends StateBase
 
-onready var manager_node = get_node("../../")
+onready var manager_node := self.owner
+
 var target_pos := Vector2()
 var speed : int = 2
 
 # Handle the mouse right click
-# Give the player, the mouse position as a target position
+# Give the player, the mouse position as a target position, and ask the nav_2D_node for a path
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed && event.get_button_index() == BUTTON_RIGHT:
-			target_pos.x = event.position.x as int
-			target_pos.y = event.position.y as int
+			target_pos.x = event.global_position.x as int
+			target_pos.y = event.global_position.y as int
 
 func update(_host, _delta):
 	# Move toward the target if it exists and if it's not the player position

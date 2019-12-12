@@ -19,6 +19,13 @@ onready var project_node := get_tree().get_root().get_node("Master/HUD/Project")
 onready var attributes_node := get_parent().get_parent().get_node("Attributes")
 onready var workTimer_node := find_node("WorkTimer")
 onready var StressIncreaseTimer_node := find_node("StressIncreaseTimer")
+onready var employee_node := get_node("../..")
+
+onready var target_position = attributes_node.get_work_position()
+
+func update(_host, _delta):
+	if employee_node.position != target_position:
+		return "Move"
 
 # Connect the signals
 func _ready():

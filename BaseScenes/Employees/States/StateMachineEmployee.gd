@@ -31,6 +31,9 @@ func set_state(new_state):
 		current_state.enter_state(self)
 		emit_signal("state_changed", state_name)
 
+func get_state():
+	return current_state
+
 func on_loaf_order():
 	set_state(get_node("Loaf"))
 
@@ -39,3 +42,6 @@ func on_work_order():
 
 func on_workhard_order():
 	set_state(get_node("WorkHard"))
+
+func on_quit_order():
+	set_state(get_node("Quit"))

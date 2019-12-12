@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Sprites/Persos/Employé1.png" type="Texture" id=1]
 [ext_resource path="res://BaseScenes/Employees/Sprite.gd" type="Script" id=2]
@@ -14,14 +14,19 @@
 [ext_resource path="res://BaseScenes/Employees/Buttons/Buttons.gd" type="Script" id=12]
 [ext_resource path="res://Sprites/Pictogrammes/Attendre.png" type="Texture" id=13]
 [ext_resource path="res://BaseScenes/Employees/Buttons/Wait.gd" type="Script" id=14]
-[ext_resource path="res://Sprites/Pictogrammes/Travaille.png" type="Texture" id=15]
-[ext_resource path="res://BaseScenes/Employees/Buttons/Work.gd" type="Script" id=16]
-[ext_resource path="res://Sprites/Pictogrammes/TravailleDur.png" type="Texture" id=17]
-[ext_resource path="res://BaseScenes/Employees/WorkHard.gd" type="Script" id=18]
-[ext_resource path="res://BaseScenes/Employees/States/StateMachineEmployee.gd" type="Script" id=19]
-[ext_resource path="res://BaseScenes/Employees/States/Work.tscn" type="PackedScene" id=20]
-[ext_resource path="res://BaseScenes/Employees/States/WorkHard.tscn" type="PackedScene" id=21]
-[ext_resource path="res://BaseScenes/Employees/States/Loaf.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Sprites/Pictogrammes/Quit.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Pictogrammes/Travaille.png" type="Texture" id=16]
+[ext_resource path="res://BaseScenes/Employees/Buttons/Work.gd" type="Script" id=17]
+[ext_resource path="res://Sprites/Pictogrammes/TravailleDur.png" type="Texture" id=18]
+[ext_resource path="res://BaseScenes/Employees/WorkHard.gd" type="Script" id=19]
+[ext_resource path="res://BaseScenes/Employees/States/StateMachineEmployee.gd" type="Script" id=20]
+[ext_resource path="res://BaseScenes/Employees/States/Work.tscn" type="PackedScene" id=21]
+[ext_resource path="res://BaseScenes/Employees/States/WorkHard.tscn" type="PackedScene" id=22]
+[ext_resource path="res://BaseScenes/Employees/States/Loaf.tscn" type="PackedScene" id=23]
+[ext_resource path="res://BaseScenes/Employees/States/CoffeePause.gd" type="Script" id=24]
+[ext_resource path="res://BaseScenes/Employees/States/Move.gd" type="Script" id=25]
+[ext_resource path="res://BaseScenes/Employees/States/Quit.gd" type="Script" id=26]
+[ext_resource path="res://BaseScenes/Employees/States/Inactive.gd" type="Script" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 1 )
@@ -31,6 +36,9 @@ radius = 15.0
 
 [node name="Employee" type="KinematicBody2D"]
 position = Vector2( -0.0659714, -1.90735e-006 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.0626717, -3.06267 )
@@ -48,6 +56,7 @@ editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="ProductivityVariation" type="Node" parent="Attributes"]
+editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="Attributes/ProductivityVariation"]
@@ -57,6 +66,7 @@ script = ExtResource( 6 )
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+disabled = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -147,14 +157,25 @@ texture_normal = ExtResource( 13 )
 expand = true
 script = ExtResource( 14 )
 
+[node name="Quit" type="TextureButton" parent="Buttons"]
+margin_left = 6.03379
+margin_top = 0.531315
+margin_right = 14.0338
+margin_bottom = 8.53132
+mouse_filter = 1
+action_mode = 0
+texture_normal = ExtResource( 15 )
+expand = true
+script = ExtResource( 14 )
+
 [node name="Work" type="TextureButton" parent="Buttons"]
 margin_left = 15.8007
 margin_top = 0.788315
 margin_right = 23.8007
 margin_bottom = 8.78832
 mouse_filter = 1
-texture_normal = ExtResource( 15 )
-script = ExtResource( 16 )
+texture_normal = ExtResource( 16 )
+script = ExtResource( 17 )
 
 [node name="WorkHard" type="TextureButton" parent="Buttons"]
 margin_left = 26.2102
@@ -162,21 +183,35 @@ margin_top = 0.659815
 margin_right = 34.2102
 margin_bottom = 8.65982
 mouse_filter = 1
-texture_normal = ExtResource( 17 )
-script = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+script = ExtResource( 19 )
 
 [node name="StateVisual" type="Node" parent="."]
 
 [node name="States" type="Node" parent="."]
-editor/display_folded = true
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 
-[node name="Work" parent="States" instance=ExtResource( 20 )]
-work_done_cooldown = 10
-stress_increase_cooldown = 25
+[node name="Work" parent="States" instance=ExtResource( 21 )]
 
-[node name="WorkHard" parent="States" instance=ExtResource( 21 )]
+[node name="WorkHard" parent="States" instance=ExtResource( 22 )]
 work_done_cooldown = 8
 stress_increase_cooldown = 12
 
-[node name="Loaf" parent="States" instance=ExtResource( 22 )]
+[node name="Loaf" parent="States" instance=ExtResource( 23 )]
+
+[node name="CoffeePause" type="Node" parent="States"]
+editor/display_folded = true
+script = ExtResource( 24 )
+
+[node name="CoffeeBreakEnd" type="Timer" parent="States/CoffeePause"]
+wait_time = 5.0
+autostart = true
+
+[node name="Move" type="Node" parent="States"]
+script = ExtResource( 25 )
+
+[node name="Quit" type="Node" parent="States"]
+script = ExtResource( 26 )
+
+[node name="Inactive" type="Node" parent="States"]
+script = ExtResource( 27 )

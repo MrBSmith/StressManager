@@ -1,9 +1,11 @@
 extends Node2D
 
 var nb_dots_visible : int = 0
+
 onready var dots_node_array : Array = get_children()
 onready var manager_node = get_tree().get_root().get_node("Master/YSort/Manager")
 onready var state_node = get_node("../States")
+onready var attributes_node = get_node("../Attributes")
 
 # On each timer end, increment the dot number variable, and show n dots, based on this variable
 func on_timeout():
@@ -25,7 +27,7 @@ func show_dots():
 		dots_node_array[nb_dots_visible - 1].show()
 
 func on_state_changed(state_name):
-	if state_name == "Loaf":
+	if state_name == "Loaf" && attributes_node.get_accessable():
 		show()
 	else:
 		hide()

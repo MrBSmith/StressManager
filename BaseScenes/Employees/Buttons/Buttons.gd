@@ -11,11 +11,15 @@ func on_accessable_change(accessable):
 		hide()
 	
 	if hour > 16:
-		loaf_button.hide()
-		quit_button.show()
-	else :
-		loaf_button.show()
-		quit_button.hide()
+		quit_button.set_visible(true)
+		quit_button.set_disabled(false)
+		loaf_button.set_visible(false)
+		loaf_button.set_disabled(true)
+	else:
+		loaf_button.set_visible(true)
+		loaf_button.set_disabled(false)
+		quit_button.set_visible(false)
+		quit_button.set_disabled(true)
 	
 func on_button_pressed():
 	hide()

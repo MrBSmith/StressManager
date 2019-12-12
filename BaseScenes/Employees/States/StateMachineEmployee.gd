@@ -45,3 +45,6 @@ func on_workhard_order():
 
 func on_quit_order():
 	set_state(get_node("Quit"))
+
+func on_burning_out():
+	set_state(get_node("Quit"))

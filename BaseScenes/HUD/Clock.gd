@@ -1,5 +1,8 @@
 extends Label
 
+onready var DaysLeft_node = get_node("../DaysLeft")
+onready var fade_node = get_node("../Fade")
+
 export var hours : int setget set_hours, get_hours
 export var minutes : int setget set_minutes, get_minutes
 var hours_string : String = "08"
@@ -10,11 +13,13 @@ const YELLOW_COLOR = "ffff00"
 const RED_COLOR = "ff0000"
 
 signal new_day
-#signal work_time
+signal office_closing
+signal time_changed
 
 func _ready():
-	var DaysLeft_node = get_node("../DaysLeft")
-	var _err = connect("new_day", DaysLeft_node, "on_new_day")
+	var _err 
+	_err = connect("new_day", DaysLeft_node, "on_new_day")
+	_err = connect("office_closing", fade_node, "on_office_closing")
 
 func _on_Timer_timeout():
 	time_increment()
@@ -27,7 +32,8 @@ func time_increment():
 	if minutes == 0:
 		set_hours(hours + 1)
 		if hours == 0:
-			emit_signal("new_day")
+			emit_signal("office_closing")
+	emit_signal("time_changed", hours)
 
 # Convert the integer value of hours and minutes, as displayable text
 func text_display():
@@ -51,6 +57,11 @@ func text_color():
 	else: 
 		set_modulate(RED_COLOR)
 
+func on_black_out():
+	set_hours(8)
+	set_minutes(0)
+	emit_signal("new_day")
+
 func wrap_hours():
 	if hours >= 24:
 		set_hours(0)
@@ -67,9 +78,7 @@ func get_hours() -> int:
 	return hours
 
 func set_minutes(value : int):
-	
-# warning-ignore:integer_division
-	value = (value/10) * 10
+	value = (value as float /10) as int * 10
 	minutes = value
 	wrap_minutes()
 

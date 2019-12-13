@@ -7,6 +7,8 @@ func _ready():
 	coffeebreak_node.connect("timeout", self, "on_coffeebreak_timeout")
 
 func enter_state(_host):
+	workTimer_node.start()
+	StressIncreaseTimer_node.start()
 	coffeebreak_node.set_wait_time(rand_range(20.0, 40.0))
 	coffeebreak_node.start()
 

@@ -3,6 +3,7 @@
 [ext_resource path="res://BaseScenes/Employees/States/WorkBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://BaseScenes/Employees/States/WorkHard.gd" type="Script" id=2]
 
-
 [node name="WorkHard" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+work_done_cooldown = 6
+stress_increase_cooldown = 12

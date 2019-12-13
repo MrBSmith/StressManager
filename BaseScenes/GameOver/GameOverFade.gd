@@ -25,5 +25,5 @@ func _process(_delta):
 	var fade_color = Color(0, 0, 0, alpha)
 	set_frame_color(fade_color)
 
-func on_game_over():
+func on_you_win():
 	set_process(true)

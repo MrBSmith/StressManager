@@ -189,14 +189,11 @@ texture_normal = ExtResource( 19 )
 script = ExtResource( 20 )
 
 [node name="States" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 21 )
 
 [node name="Work" parent="States" instance=ExtResource( 22 )]
 
 [node name="WorkHard" parent="States" instance=ExtResource( 23 )]
-work_done_cooldown = 8
-stress_increase_cooldown = 12
 
 [node name="Loaf" parent="States" instance=ExtResource( 24 )]
 

@@ -48,16 +48,13 @@ func enter_state(_host):
 	workTimer_node.start()
 	StressIncreaseTimer_node.start()
 
-# Set the timers inactives when exiting the state
-func exit_state(_host):
-	workTimer_node.stop()
-
 # At a interval of time based on the productivity, the work_done value is increased,
 # Recalculate the interval each time the timer is finished
 func on_worktimer_timeout():
-	emit_signal("work_done")
-	var prod = attributes_node.get_productivity()
-	workTimer_node.set_wait_time(work_done_cooldown - prod)
+	if state_node.get_state() == self:
+		emit_signal("work_done")
+		var prod = attributes_node.get_productivity()
+		workTimer_node.set_wait_time(work_done_cooldown - prod)
 
 # At a interval of time based on the character's trait, the stress value is increased,
 # Recalculate the interval each time the timer is finished

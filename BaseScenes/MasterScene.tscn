@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TilesetBureau/Bureau.tres" type="TileSet" id=1]
 [ext_resource path="res://BaseScenes/Manager.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Sprites/Decors/Porte.png" type="Texture" id=7]
 [ext_resource path="res://BaseScenes/HUD/HUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://BaseScenes/GameOver.tscn" type="PackedScene" id=9]
+[ext_resource path="res://BaseScenes/YouWin/Fade.gd" type="Script" id=10]
+[ext_resource path="res://Font/BoldCapitalPixel.tres" type="DynamicFont" id=11]
+[ext_resource path="res://BaseScenes/GameOver/Label.gd" type="Script" id=12]
 
 [node name="Master" type="Node2D"]
 __meta__ = {
@@ -61,7 +64,7 @@ position = Vector2( 79.5884, 64.681 )
 light_mask = 16
 position = Vector2( 119.374, 41.3821 )
 
-[node name="Sprite" type="Sprite" parent="YSort"]
+[node name="Porte" type="Sprite" parent="YSort"]
 position = Vector2( 41.7966, 13.0746 )
 texture = ExtResource( 7 )
 offset = Vector2( 0, -1 )
@@ -76,3 +79,27 @@ mouse_filter = 2
 [node name="GameOver" parent="." instance=ExtResource( 9 )]
 margin_right = 160.0
 margin_bottom = 92.0
+mouse_filter = 2
+
+[node name="YouWin" type="Control" parent="."]
+editor/display_folded = true
+margin_right = 160.0
+margin_bottom = 92.0
+mouse_filter = 2
+
+[node name="Fade" type="ColorRect" parent="YouWin"]
+margin_right = 160.0
+margin_bottom = 92.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="YouWin"]
+visible = false
+margin_left = 55.4194
+margin_top = 38.1118
+margin_right = 103.419
+margin_bottom = 52.1118
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.270588, 0.976471, 0.298039, 1 )
+text = "YOU WIN"
+script = ExtResource( 12 )

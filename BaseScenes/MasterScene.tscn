@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://TilesetBureau/Bureau.tres" type="TileSet" id=1]
 [ext_resource path="res://BaseScenes/Manager.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://BaseScenes/YouWin/Fade.gd" type="Script" id=10]
 [ext_resource path="res://Font/BoldCapitalPixel.tres" type="DynamicFont" id=11]
 [ext_resource path="res://BaseScenes/GameOver/Label.gd" type="Script" id=12]
+[ext_resource path="res://Sounds/BlueInGreen.ogg" type="AudioStream" id=13]
 
 [node name="Master" type="Node2D"]
 __meta__ = {
@@ -19,6 +20,7 @@ __meta__ = {
 }
 
 [node name="YSort" type="YSort" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -90,6 +92,7 @@ mouse_filter = 2
 [node name="Fade" type="ColorRect" parent="YouWin"]
 margin_right = 160.0
 margin_bottom = 92.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 script = ExtResource( 10 )
 
@@ -103,3 +106,7 @@ custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.270588, 0.976471, 0.298039, 1 )
 text = "YOU WIN"
 script = ExtResource( 12 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true

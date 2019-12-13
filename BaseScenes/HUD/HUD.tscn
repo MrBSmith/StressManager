@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Font/BoldCapsPixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://BaseScenes/HUD/Clock.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://BaseScenes/HUD/DaysLeft.gd" type="Script" id=4]
 [ext_resource path="res://BaseScenes/HUD/Project.gd" type="Script" id=5]
 [ext_resource path="res://BaseScenes/HUD/Fade.gd" type="Script" id=6]
+[ext_resource path="res://BaseScenes/HUD/EndOfWork.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -31,7 +32,7 @@ text = "08:00"
 align = 2
 valign = 1
 script = ExtResource( 2 )
-hours = 23
+hours = 22
 
 [node name="DaysLeft" type="Label" parent="."]
 margin_left = 65.0
@@ -41,6 +42,7 @@ margin_bottom = 9.0
 custom_fonts/font = ExtResource( 3 )
 text = "10j.restants"
 script = ExtResource( 4 )
+days_left = 1
 
 [node name="Project" type="Label" parent="."]
 margin_top = -5.0
@@ -56,4 +58,7 @@ margin_bottom = 90.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 script = ExtResource( 6 )
+
+[node name="EndOfWork" type="Node" parent="."]
+script = ExtResource( 7 )
 [connection signal="timeout" from="Timer" to="Clock" method="_on_Timer_timeout"]

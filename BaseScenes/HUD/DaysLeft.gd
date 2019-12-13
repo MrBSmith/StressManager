@@ -1,6 +1,9 @@
 extends Label
 
-var days_left : int = 10 setget set_days_left, get_days_left
+export var days_left : int setget set_days_left, get_days_left
+
+func _ready():
+	update_text()
 
 func on_new_day():
 	set_days_left(days_left - 1)

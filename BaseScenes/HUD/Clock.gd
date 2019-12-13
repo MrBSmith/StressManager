@@ -20,6 +20,7 @@ func _ready():
 	var _err 
 	_err = connect("new_day", DaysLeft_node, "on_new_day")
 	_err = connect("office_closing", fade_node, "on_office_closing")
+	text_display()
 
 func _on_Timer_timeout():
 	time_increment()

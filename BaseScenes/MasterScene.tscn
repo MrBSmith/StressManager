@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TilesetBureau/Bureau.tres" type="TileSet" id=1]
 [ext_resource path="res://BaseScenes/Manager.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://BaseScenes/Employees/EmployeesInstances/Employe4.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Decors/Porte.png" type="Texture" id=7]
 [ext_resource path="res://BaseScenes/HUD/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://BaseScenes/GameOver.tscn" type="PackedScene" id=9]
 
 [node name="Master" type="Node2D"]
 __meta__ = {
@@ -38,17 +39,25 @@ tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 
 [node name="Manager" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 62.4076, 49.6059 )
 
-[node name="Employe1" parent="YSort" instance=ExtResource( 3 )]
+[node name="Employe1" parent="YSort" groups=[
+"Employees",
+] instance=ExtResource( 3 )]
 position = Vector2( 39.5634, 40.6557 )
 
-[node name="Employe2" parent="YSort" instance=ExtResource( 4 )]
+[node name="Employe2" parent="YSort" groups=[
+"Employees",
+] instance=ExtResource( 4 )]
 position = Vector2( 39.6581, 64.6049 )
 
-[node name="Employe3" parent="YSort" instance=ExtResource( 5 )]
+[node name="Employe3" parent="YSort" groups=[
+"Employees",
+] instance=ExtResource( 5 )]
 light_mask = 8
 position = Vector2( 79.5884, 64.681 )
 
-[node name="Employe4" parent="YSort" instance=ExtResource( 6 )]
+[node name="Employe4" parent="YSort" groups=[
+"Employees",
+] instance=ExtResource( 6 )]
 light_mask = 16
 position = Vector2( 119.374, 41.3821 )
 
@@ -63,3 +72,7 @@ __meta__ = {
 [node name="HUD" parent="." instance=ExtResource( 8 )]
 margin_bottom = 92.0
 mouse_filter = 2
+
+[node name="GameOver" parent="." instance=ExtResource( 9 )]
+margin_right = 160.0
+margin_bottom = 92.0
